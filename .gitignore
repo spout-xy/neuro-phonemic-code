@@ -1,0 +1,57 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+.venv_lava/
+venv/
+env/
+.env
+
+# Testing & coverage
+.pytest_cache/
+.coverage
+htmlcov/
+test_*.bin
+
+# Microsoft Word temporary lock files
+~$*.docx
+~$*.doc
+*.tmp
+
+# Operating system artifacts
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Scratch notes and local workspace files (in root)
+/*.txt
+!requirements.txt
+/*.pdf
+petbot_neuromorphic_code/
+GPT4o_Nickname_Audit_Report.md
+MEMORY.md
+RESEARCH_PAPER_FOUNDATIONS.md
+README_Petbot.md
+Neurophonesthemic_Language_Paper_Draft.md
+RESEARCH_PAPER_DRAFT.md
+Research_Paper_Draft_v3_updated.md
+The Neurophonesthemic Lang Roadmap.md
+neurophonesthemic Code Lab.md
+/kernel_lexicon.bin
+toddler_grid_harness.html
+apply_*.py
+build_*.py
+generate_research_paper.py
+update_v3_draft.py
+audit_gpt_names.py
+
+# Ignore root-level docx (tracked version is inside paper/)
+/Research_Paper_Draft*.docx
+/Clockless_Spiking_Acoustics_edits.docx
+update_title_and_author.py
+generate_arxiv_bundle.py
+Research Paper Drafts/
+origin_conversations/
+The_Utility_of_Attunement.md

@@ -1,0 +1,12 @@
+# Petbot: Embodied Phonosemantics & Neuromorphic Robotics Architecture
+# Requirements for Module 1 (Baseline Cognition) and Module 2 (Intel Lava Spiking Simulation)
+
+# Core numerical computing & plotting
+numpy>=1.24.0,<2.0.0
+matplotlib>=3.7.0
+
+# Intel Lava Neuromorphic Framework (requires Python 3.10)
+lava-nc>=0.9.0,<=0.10.0
+
+# Automated testing & verification
+pytest>=8.0.0
