@@ -5,19 +5,35 @@
 [![Intel Loihi 2](https://img.shields.io/badge/Neuromorphic-Loihi%202%20Simulated-green.svg)](https://www.intel.com/content/www/us/en/research/neuromorphic-computing.html)
 [![Tests Passing](https://img.shields.io/badge/Tests-12%2F12%20Passed-brightgreen.svg)]()
 [![License](https://img.shields.io/badge/License-PolyForm%20Noncommercial%201.0.0-lightgrey.svg)](LICENSE)
+[![Preprint](https://img.shields.io/badge/Preprint-PDF-red.svg)](paper/Clockless_Spiking_Acoustics.pdf)
 
 > **A Token-Free, Sub-Milliwatt Cognitive Architecture for Autonomous Robotics**  
-> *By Brook Shea | Independent Researcher (@spout-xy)*
+> *By Brook Shea | Independent Researcher (ORCID: [0009-0003-3758-4433](https://orcid.org/0009-0003-3758-4433) | GitHub: [@spout-xy](https://github.com/spout-xy))*
 
 ---
 
-## Overview
+## Overview: The Embodied Speech Challenge
 
-For over six decades, the digital representation of human language has rested upon the **American Standard Code for Information Interchange (ASCII)**, formalized in 1963. ASCII established the computer science convention that linguistic symbols could be represented as arbitrary integer encodings (`'A' = 65`, `'B' = 66`). Modern Natural Language Processing (NLP) inherited this structuralist substrate directly, replacing individual characters with sub-word tokenizers (such as Byte-Pair Encoding) that project discrete indices into high-dimensional embedding spaces.
+Autonomous mobile robots operate in physical environments governed by closed-loop kinematics, finite battery capacity, and microsecond safety margins. Yet conventional AI architectures treat spoken communication through what roboticists identify as the **"Puppeteer Fallacy"**: constructing complex physical bodies while piloting their limbs like marionettes from remote cloud data centers.
 
-While powerful for text prediction in server clusters, this paradigm fails fundamentally in embodied robotics: **disembodied cloud tokens carry no mass, no friction, no articulatory resistance, and no motor consequences.** Relying on cloud Large Language Models introduces non-deterministic latency bottlenecks (500–1,500 ms), kilovolt-ampere power budgets, and catastrophic physical hallucinations.
+Because an abstract text token carries no mass, friction, or proprioception, a cloud-tethered robot must burn kilowatts of server wattage attempting to deduce physical causality from co-occurrence statistics. When an urgent physical event occurs—such as a sharp acoustic warning or sudden loss of footing—audio must be streamed across wireless networks, converted into text strings, and evaluated through multi-billion parameter attention matrices before actuators can respond (incurring 500–1,500 ms of latency). By the time the cloud model commands the legs to brace, the robot has already fallen over.
 
-**Petbot** introduces **Neurophonesthemic Coding**, an event-driven computer language and neuromorphic control architecture that directly grounds vocal tract articulatory biomechanics into physical motor registers.
+As AI researchers including **Yann LeCun (2022)** have emphasized, autoregressive token prediction lacks physical world models and cannot achieve the sensorimotor common sense demonstrated by human toddlers. Edge robotics does not need heavier transformer models; it requires an immediate, bio-inspired sensorimotor reflex arc.
+
+---
+
+## The Breakthrough: Articulation as Binary Physical Gates
+
+In acoustic phonetics, speech is not an arbitrary symbolic code, but the fluid-mechanical output of an embodied physical plant. When Roman Jakobson, Gunnar Fant, and Morris Halle published *Preliminaries to Speech Analysis* (1951), their foundational breakthrough was that all human speech phonemes are structured as **binary oppositions** ($[+/\text{--}\ \text{vocalic}]$, $[+/\text{--}\ \text{interrupted}]$, $[+/\text{--}\ \text{voiced}]$).
+
+Human articulation does not output floating-point values. The vocal tract physically evaluates a cascade of discrete, binary mechanical questions:
+* **Is the airway sealed or open?** (Obstruent vs. Vocalic $\rightarrow$ Mechanical Stoppage)
+* **Is the release abrupt or continuous?** (Plosive stop vs. Frictional flow $\rightarrow$ Continuous Venting)
+* **Is the motor active or passive?** (Voiced periodic tone vs. Unvoiced noise $\rightarrow$ Internal Containment)
+
+**Speech is already digital logic at the acoustic frontier.** 
+
+**Neurophonesthemic Coding** maps these fluid-mechanical boundary conditions directly into an immutable **6-bit Boolean coordinate space ($2^6 = 64$)**, establishing an instantaneous, clockless reflex arc directly into robot motor registers without passing through a single floating-point text token.
 
 ```
 Incoming Speech Sound
@@ -32,7 +48,7 @@ Incoming Speech Sound
              ┌─────────────┴─────────────┐
              ▼                           ▼
 ┌──────────────────────────┐  ┌──────────────────────────┐
-│  Direct Motor Reflex     │  │  16-Bit VSA Delay Line   │
+│  Single-Cycle Reflex Arc │  │  16-Bit VSA Delay Line   │
 │  - Resistance R(c)       │  │  T(W) = CircPermutation  │
 │  - Velocity (dx, dy)     │  │  UP (0x2AB4) != PU       │
 │  - Boundary Flag B(c)    │  │  46 Kernel Words (368 B) │
@@ -49,19 +65,23 @@ Incoming Speech Sound
 
 ---
 
-## Key Breakthroughs & Empirical Results
+## Key Architectural Contributions
 
 ### 1. The 368-Byte Immutable Binary ROM Kernel
-* **46 Words of our Kernel Lexicon:** The core spoken vocabulary compiles into an immutable 368-byte binary table (`kernel_lexicon.bin`), packed into 8-byte structs (`<HBbbBbB`).
-* **Zero Token Collisions:** Using non-commutative circular delay-line permutations $\rho_6(x, t)$, every word resolves to a unique 16-bit Concept Token with **zero collisions across the vocabulary**.
-* **64-Prime Toddler Topology:** Unified with 18 additional conceptual primes, the system maps 1:1 onto Anna Wierzbicka’s universal Natural Semantic Metalanguage (NSM) primes ($2^6 = 64$ slots, 512 bytes).
+* **46-Word Foundational Toddler Lexicon:** Compiles into an immutable 368-byte binary lookup table (`kernel_lexicon.bin`), packed into 8-byte structs (`<HBbbBbB`).
+* **Zero Token Collisions:** Using non-commutative circular delay-line permutations $\rho_6(x, t)$, every phoneme sequence binds into a unique 16-bit Concept Token with **zero collisions across the vocabulary**.
+* **64-Prime Developmental Topology:** Unified with 18 additional primitives, the architecture maps 1:1 onto Anna Wierzbicka’s universal Natural Semantic Metalanguage (NSM) primes ($2^6 = 64$ concepts, 512 bytes).
 
-### 2. Neuromorphic Silicon Execution (Intel Lava / Loihi 2)
-All simulations are executed using the **Intel Lava Neuromorphic Framework** under `Loihi2SimCfg` with virtual event-driven time-stepping:
+### 2. Neuromorphic Spiking Silicon Execution (Intel Lava / Loihi 2)
+All neural dynamics are verified using the **Intel Lava Neuromorphic Framework** under `Loihi2SimCfg` using discrete-time integer state variables:
+* **Zero-Power Quiescence (Thalamic Noise Shield):** A 6-channel Leaky Integrate-and-Fire (LIF) network quenches ambient room noise up to $I=4.8$ with **0 false-alarm spikes across 180 neuron-steps**, while synchronously latching 6-bit Address-Event Representation (AER) coordinate bursts.
+* **Clockless Syllable Pacing & Prosodic Warmth:** Replaces CPU timer oscillators with incoming acoustic rhythm. Bit-0 transitions pace syllable cadence (`"UP"` = 1 beat, `"PETBOT"` = 2 beats, `"BANANA"` = 3 beats) and measure prosodic warmth ($>3.37\times$ separation between staccato commands and soothing speech).
+* **Continuous Attractor Error Recovery:** A 10-compartment competitive spiking network recovers from 1-bit Hamming corrupted acoustic input (`"UB"` $\rightarrow$ `"UP"`), firing **5 spikes on target basin `[UP]` with exactly 0 competitor leakage across all 9 competing basins** across an 18.8% safety barrier.
 
-* **Zero-Power Quiescence (Thalamic Noise Gate):** A 6-channel Leaky Integrate-and-Fire (LIF) network completely quenches ambient room noise up to $I=4.8$ with **0 false-alarm spikes across 180 neuron-steps**, while synchronously latching 6-bit Address-Event Representation (AER) coordinate bursts.
-* **Clockless Syllable Pacing:** Incoming speech rhythm paces network time without an external CPU oscillator. Transitions across the Bit-0 alternating wave ($0 \leftrightarrow 1$) pace syllable cadence (`"UP"` = 1 beat, `"PETBOT"` = 2 beats, `"BANANA"` = 3 beats) and measure prosodic warmth ($>3.37\times$ separation between staccato commands and soothing prolonged speech).
-* **Continuous Attractor Basins:** A 10-compartment competitive spiking network recovers from 1-bit Hamming corrupted acoustic input (`"UB"` $\rightarrow$ `"UP"` plosive voicing swap), firing **5 spikes on target basin `[UP]` with exactly 0 competitor leakage across all 9 competing basins** across an 18.8% safety barrier.
+### 3. The $O(1)$ Spatial Jump Table
+Rather than requiring quadratic self-attention ($O(N^2)$) or high-dimensional embedding searches, memory lookup for foundational concepts executes as a direct hardware memory address:
+$$\text{Address} = \text{Base\_Pointer} + (\text{Coordinate} \times \text{Tuple\_Width})$$
+Memory access reduces to a single-cycle arithmetic offset ($O(1)$), slashing retrieval energy from millijoules down to nanojoules.
 
 ---
 
@@ -70,12 +90,21 @@ All simulations are executed using the **Intel Lava Neuromorphic Framework** und
 | Metric | Cloud Multimodal LLMs (Whisper + GPT-4o) | Classical TinyML / Edge KWS (HMM / CNN) | Petbot Neuromorphic Architecture (Ours) |
 | :--- | :--- | :--- | :--- |
 | **Compute Location** | Cloud Server Farms (NVIDIA H100s) | Edge MCU (ARM Cortex-M4/M7) | On-Chip Neuromorphic Silicon (Intel Loihi 2) |
-| **Active Power** | 300 W – 700 W (Server Cluster) | 50 mW – 250 mW (Active DSP) | **< 1.0 mW (Sub-milliwatt)** |
-| **Quiescent Power** | Always Active (Network Streaming) | Static Leakage (~5–10 mW) | **Zero-Power Event-Driven Quiescence** |
+| **Active Dynamic Power** | 400 W – 1,000 W (Server Clusters) | 50 mW – 250 mW (Active DSP) | **< 1.0 mW (Loihi 2) / < 10 mW (MCU)** |
+| **Quiescent Power** | Continuous Cluster Idle Draw | Static Oscillator Leakage (~5–10 mW) | **0.0 W (Asynchronous Quiescence)** |
 | **Energy per Decision** | 10 – 50 Joules / word | 1 – 10 milliJoules / word | **1 – 2 microJoules ($\mu\text{J}$) / word ($10^6\times$ savings)** |
-| **Processing Latency** | 500 – 1,500 ms (Jittered) | 50 – 150 ms | **1 – 5 ms (Deterministic)** |
-| **Physical Grounding** | None (Statistical Vectors) | None (Acoustic Spectrograms) | **Native Biomechanical Invariants ($R, \Delta x, \Delta y, B, E$)** |
+| **Processing Latency** | 500 – 1,500 ms (Jitter prone) | 50 – 150 ms (Buffer latency) | **< 1 ms (Deterministic Event-Driven)** |
+| **Physical Grounding** | None (Statistical Text Tokens) | None (Classification Labels) | **Native Biomechanical Invariants ($R, \Delta x/\Delta y, B, E$)** |
 | **Memory Footprint** | Gigabytes to Terabytes (VRAM) | 250 KB – 2 MB (Weights) | **368 Bytes ROM (512 B full topology)** |
+
+---
+
+## Hardware Deployment Roadmap
+
+1. **The $O(1)$ Spatial Jump Table:** Constant-time single-cycle memory retrieval on bare-metal silicon.
+2. **Level 1 (Sub-Millisecond Front-End for Existing LLMs):** Serves as an instantaneous, sub-millisecond acoustic front-end for hybrid robotic systems paired with embedded GPUs (e.g., NVIDIA Jetson), replacing heavy audio transformers with deterministic concept tokens.
+3. **Level 2 (Anchored Foundation Models on Intel Kapoho Point):** Targets the 8-chip Intel Kapoho Point system (over 8 million spiking neurons). Chip 0 acts as the subcortical sensory noise shield, while remaining chips host an anchored cognitive manifold with external memory docking.
+4. **Multimodal Event Fusion (DVS Silicon Retina):** Asynchronous event cameras speak the exact same geometric vector language (SVG-like contours vs. pixel raster grids), mapping optical flow and visual boundaries directly into the same 4 physical motor registers.
 
 ---
 
@@ -98,7 +127,7 @@ Petbot/
 │   ├── lava_word_resonator.py      # Exp 4: 10-Basin Continuous Attractor Network
 │   └── lava_lif_baseline.py        # Exp 1: Baseline LIF Dynamics & Leak Damping
 │
-├── tests/                          # 1-Command Automated Verification
+├── tests/                          # Automated Verification Suite
 │   ├── test_module1_baseline.py    # 8 Unit Tests for Baseline Modules
 │   └── test_module2_neuromorphic.py# 4 End-to-End Tests for Lava Loihi 2 Processes
 │
@@ -106,8 +135,9 @@ Petbot/
 │   └── kernel_lexicon.bin          # 368-byte compiled binary table
 │
 ├── paper/                          # Academic Preprint Manuscript
-│   ├── CLOCKLESS_SPIKING_ACOUSTICS.md # Synchronized Markdown Edition
-│   └── Clockless_Spiking_Acoustics.docx # Word Document Edition
+│   ├── CLOCKLESS_SPIKING_ACOUSTICS.md   # Synchronized Markdown Edition
+│   ├── Clockless_Spiking_Acoustics.docx # Word Document Edition
+│   └── Clockless_Spiking_Acoustics.pdf  # Publication-Ready PDF
 │
 ├── requirements.txt                # Dependencies (numpy, matplotlib, lava-nc, pytest)
 ├── pytest.ini                      # Unified test runner configuration
@@ -122,11 +152,11 @@ Petbot/
 * Python 3.10 (Intel Lava requires Python 3.10)
 * Virtual environment recommended
 
-### Installation & One-Command Reproduction
+### Installation & One-Command Test Suite
 ```bash
 # Clone the repository
-git clone https://github.com/spoutxy/neurophonesthemic-code.git
-cd neurophonesthemic-code
+git clone https://github.com/spout-xy/Petbot.git
+cd Petbot
 
 # Install dependencies
 pip install -r requirements.txt
@@ -168,9 +198,15 @@ tests/test_module2_neuromorphic.py::test_lava_word_resonator_continuous_attracto
 
 ---
 
+## Acknowledgments
+
+The author gratefully acknowledges the collaborative assistance of Google DeepMind's Gemini 3.8 model (utilized within the Antigravity agentic research environment), which served as an interactive computational partner throughout this project. Under the author's direct conceptual formulation and architectural design, Gemini assisted in translating the theoretical framework into executable software, constructing the Intel Lava neuromorphic simulation harnesses, and running benchmark verifications. All governing theoretical hypotheses, scientific interpretations, and foundational sensorimotor frameworks were conceived and directed by the author. This work stands as a testament to what can be achieved when human physical intuition and synthetic computational rigor collaborate with mutual integrity.
+
+---
+
 ## License
 
 This project is licensed under the **PolyForm Noncommercial License 1.0.0**. It is free for academic, research, personal experimentation, and non-commercial educational use.
 
-For commercial licensing, proprietary hardware integration, or enterprise inquiries, please contact:  
+For inquiries:  
 GitHub: [@spout-xy](https://github.com/spout-xy)
