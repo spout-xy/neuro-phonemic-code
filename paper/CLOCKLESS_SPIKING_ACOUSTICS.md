@@ -4,6 +4,7 @@
 
 Brook Shea  
 *Independent Researcher*  
+*ORCID: https://orcid.org/0009-0003-3758-4433*  
 *GitHub: https://github.com/spout-xy*  
 *November 2026*
 
