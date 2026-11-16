@@ -155,8 +155,8 @@ Petbot/
 ### Installation & One-Command Test Suite
 ```bash
 # Clone the repository
-git clone https://github.com/spout-xy/Petbot.git
-cd Petbot
+git clone https://github.com/spout-xy/neuro-phonemic-code.git
+cd neuro-phonemic-code
 
 # Install dependencies
 pip install -r requirements.txt
